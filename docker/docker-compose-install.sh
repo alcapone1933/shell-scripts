@@ -16,3 +16,4 @@ else
     echo "=> Symlink exist"
 fi
 docker-compose -v
+
