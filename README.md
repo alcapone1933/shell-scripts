@@ -44,6 +44,7 @@ Tested working on:
 ### SSH CONFIG DEMO
 ```txt
 # ~/.ssh/config
+# /home/user/.ssh/config
 # /home/foo/.ssh/config
 # /root/.ssh/config
 Host demo-1
