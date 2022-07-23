@@ -3,9 +3,9 @@
 # SSH_HOSTS=$(grep -P "^Host ([^*]+)$" $HOME/.ssh/config | sed 's/Host //')
 SSH_HOSTS=$(grep -P "^Host ([^*]+)$" ~/.ssh/config | sed 's/Host //')
 i=1
-for host in $SSH_HOSTS; do
-  echo "[ ${i} ] - ${host}"
-  SSH_HOST[${i}]="${host}"
+for hosts in $SSH_HOSTS; do
+  echo "[ ${i} ] - ${hosts}"
+  SSH_HOST[${i}]="${hosts}"
   ((i++))
 done
 echo
