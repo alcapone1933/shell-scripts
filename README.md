@@ -8,16 +8,28 @@
 <details>
 <summary markdown="span">Docker or Compose install</summary>
 
-### Docker and Compose install
+### Docker and Compose install on DEBIAN
 ```bash
 wget -q -O - \
-https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-and-compose-install.sh | bash
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-and-compose-debian-install.sh | bash
 ```
 
-### Docker install
+### Docker and Compose install on UBUNTU
 ```bash
 wget -q -O - \
-https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-install.sh | bash
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/ docker-and-compose-ubuntu-install.sh | bash
+```
+
+### Docker install on DEBIAN
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-debian-install.sh | bash
+```
+
+### Docker install on UBUNTU
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-ubuntu-install.sh | bash
 ```
 
 ### Compose install
