@@ -17,7 +17,7 @@ echo \
   $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-docker -version 
+docker -v 
 
 # Docker Compose install
 COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
@@ -31,4 +31,4 @@ if [ ! -L $mda ]; then
 else
     echo "=> Symlink exist"
 fi
-docker-compose -version
+docker-compose -v
