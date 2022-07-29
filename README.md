@@ -17,7 +17,7 @@ https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/dock
 ### Docker and Compose install on UBUNTU
 ```bash
 wget -q -O - \
-https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/ docker-and-compose-ubuntu-install.sh | bash
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-and-compose-ubuntu-install.sh | bash
 ```
 
 ### Docker install on DEBIAN
