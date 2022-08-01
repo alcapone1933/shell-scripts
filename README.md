@@ -8,6 +8,14 @@
 <details>
 <summary markdown="span">Docker or Compose install</summary>
 
+&nbsp;
+
+Tested working on:
+
+* :white_check_mark: Debian 11, Ubuntu 22
+
+&nbsp;
+
 ### Docker and Compose install on DEBIAN
 ```bash
 wget -q -O - \
@@ -38,12 +46,6 @@ wget -q -O - \
 https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-compose-install.sh | bash
 ```
 </details>
-
-Tested working on:
-
-* :white_check_mark: Debian 11
-
-&nbsp;
 
 &nbsp;
 
