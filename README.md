@@ -19,31 +19,31 @@ Tested working on:
 ### Docker and Compose install on DEBIAN
 ```bash
 wget -q -O - \
-https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-and-compose-debian-install.sh | bash
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-and-compose-debian-install.sh | suso bash
 ```
 
 ### Docker and Compose install on UBUNTU
 ```bash
 wget -q -O - \
-https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-and-compose-ubuntu-install.sh | bash
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-and-compose-ubuntu-install.sh | suso bash
 ```
 
 ### Docker install on DEBIAN
 ```bash
 wget -q -O - \
-https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-debian-install.sh | bash
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-debian-install.sh | suso bash
 ```
 
 ### Docker install on UBUNTU
 ```bash
 wget -q -O - \
-https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-ubuntu-install.sh | bash
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-ubuntu-install.sh | suso bash
 ```
 
 ### Compose install
 ```bash
 wget -q -O - \
-https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-compose-install.sh | bash
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-compose-install.sh | suso bash
 ```
 </details>
 
