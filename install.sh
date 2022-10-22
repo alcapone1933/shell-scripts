@@ -29,25 +29,25 @@ else
     fi
 fi
 function Docker_and_Compose_install_on_DEBIAN() {
-    if whiptail --yesno "Docker and Compose install on DEBIAN" 10 100; then
+    if whiptail --yesno "Docker and Compose install on DEBIAN" 10 45; then
         wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-and-compose-debian-install.sh | sudo bash
-        whiptail --title "Docker Version" --no-button ok  --msgbox "`docker -v`   |   `docker-compose version`" 15 80
+        whiptail --title "Docker Version" --no-button ok  --msgbox "`docker -v`   |   `docker-compose version`" 8 80
     else
         clear
         return 0
     fi
 }
 function Docker_and_Compose_install_on_UBUNTU() {
-    if whiptail --yesno "Docker and Compose install on UBUNTU" 10 100; then
+    if whiptail --yesno "Docker and Compose install on UBUNTU" 10 45; then
         wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-and-compose-ubuntu-install.sh | sudo bash
-        whiptail --title "Docker Version" --no-button ok  --msgbox "`docker -v`   |   `docker-compose version`" 15 80
+        whiptail --title "Docker Version" --no-button ok  --msgbox "`docker -v`   |   `docker-compose version`" 8 80
     else
         clear
         return 0
     fi
 }
 function Docker_install_on_DEBIAN() {
-    if whiptail --yesno "Docker install on DEBIAN" 10 100; then
+    if whiptail --yesno "Docker install on DEBIAN" 10 45; then
         wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-debian-install.sh | sudo bash
         whiptail --title "Docker Version" --no-button ok  --msgbox "`docker -v`" 8 42
     else
@@ -56,7 +56,7 @@ function Docker_install_on_DEBIAN() {
     fi
 }
 function Docker_install_on_UBUNTU() {
-    if whiptail --yesno "Docker install on UBUNTU" 10 100; then
+    if whiptail --yesno "Docker install on UBUNTU" 10 45; then
         wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-ubuntu-install.sh | sudo bash
         whiptail --title "Docker Version" --no-button ok  --msgbox "`docker -v`" 8 42
     else
@@ -65,7 +65,7 @@ function Docker_install_on_UBUNTU() {
     fi
 }
 function Docker_Compose_install() {
-    if whiptail --yesno "Docker Compose install" 10 100; then
+    if whiptail --yesno "Docker Compose install" 10 45; then
         wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-compose-install.sh | sudo bash
         whiptail --title "Docker Version" --no-button ok  --msgbox "`docker-compose version`" 8 34
     else
@@ -74,7 +74,7 @@ function Docker_Compose_install() {
     fi
 }
 function Docker_and_Compose_remove() {
-    if whiptail --yesno "Docker and Compose Remove" 10 100; then
+    if whiptail --yesno "Docker and Compose Remove" 10 45; then
         sudo apt-get remove --purge docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
         sudo apt-get autoremove -y
         rm -vrf /usr/local/bin/docker-compose && rm -vrf /usr/bin/docker-compose
@@ -85,7 +85,7 @@ function Docker_and_Compose_remove() {
     fi
 }
 function Docker_remove() {
-    if whiptail --yesno "Docker Remove" 10 100; then
+    if whiptail --yesno "Docker Remove" 10 45; then
         sudo apt-get remove --purge docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
         sudo apt-get autoremove -y
         clear
@@ -95,7 +95,7 @@ function Docker_remove() {
     fi
 }
 function Docker_Compose_remove() {
-    if whiptail --yesno "Docker Compose Remove" 10 100; then
+    if whiptail --yesno "Docker Compose Remove" 10 45; then
         rm -vrf /usr/local/bin/docker-compose && rm -vrf /usr/bin/docker-compose
         clear
     else
