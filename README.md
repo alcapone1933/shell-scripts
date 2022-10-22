@@ -1,5 +1,5 @@
 # Shell-Scripts
-# Bash Script to Aautomate installation and Bash TOOLS
+# Bash Script to Automate installation and Bash TOOLS
 
 &nbsp;
 
