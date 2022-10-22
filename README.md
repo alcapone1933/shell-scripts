@@ -3,6 +3,26 @@
 
 &nbsp;
 
+## Automate installation with Whiptail
+
+Tested working on:
+
+* :white_check_mark: Debian 11, Ubuntu 22
+
+&nbsp;
+
+Installing Whiptail
+
+```bash
+sudo apt install whiptail -y
+```
+Run the script and click through the Menu
+
+```bash
+wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install.sh | sudo bash
+
+```
+
 ## Automate installation
 
 <details>
@@ -40,7 +60,7 @@ wget -q -O - \
 https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-ubuntu-install.sh | sudo bash
 ```
 
-### Compose install
+### Docker Compose install
 ```bash
 wget -q -O - \
 https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-compose-install.sh | sudo bash
