@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+
 if [ `whoami` != root ]; then
     echo Please run this script as root or using sudo
     exit 1
@@ -103,6 +103,88 @@ function Docker_Compose_remove() {
         return 0
     fi
 }
+function Docker_Portainer() {
+    CONTAINERS_STATUS_ALL=$(docker container ls -a --format 'table {{.Names}}    {{.Image}}     {{.Status}}')
+    whiptail --title "DOCKER CONTAINER STATUS" --scrolltext --msgbox "$CONTAINERS_STATUS_ALL" 30 70
+    Portainer_ECHO=$(
+    echo "Portainer install"
+    echo 
+    echo "docker pull portainer/portainer-ce:latest"
+    echo "docker run -d -p 8000:8000 -p 9443:9443 -p 9000:9000 --name=portainer --restart=always \\ \\n-v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest"
+    echo
+    echo "Do you want Portainer install"
+    )
+    if whiptail --yesno "$Portainer_ECHO" 20 120; then
+        sudo docker pull portainer/portainer-ce:latest
+        sudo docker run -d -p 8000:8000 -p 9443:9443 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+        # TERM=ansi whiptail --title "DOCKER CONTAINER STATUS" --infobox "$CONTAINERS_STATUS_ALL" 30 70
+        sleep 2
+        CONTAINERS_STATUS_INSTALL=$(docker container ls -a --format 'table {{.Names}}    {{.Image}}     {{.Status}}')
+        whiptail --title "DOCKER CONTAINER STATUS" --scrolltext --msgbox "$CONTAINERS_STATUS_INSTALL" 30 70
+    else
+        clear
+        return 0
+    fi
+}
+function CTOP() {
+    CTOP_ECHO=$(
+    echo "ctop: Top-like interface for container metrics https://github.com/bcicen/ctop"
+    echo
+    echo "docker run --rm -ti --name=ctop --volume /var/run/docker.sock:/var/run/docker.sock:ro alcapone1933/ctop:latest"
+    echo
+    echo "Do you want to START Ctop"
+    )
+    if whiptail --title "CTOP" --yesno "$CTOP_ECHO" 20 120; then
+        sleep 1
+        docker run --rm -ti --name=ctop --volume /var/run/docker.sock:/var/run/docker.sock:ro alcapone1933/ctop:latest
+        sleep 1
+    else
+        return 0
+    fi
+    # whiptail --title "CTOP" --msgbox "ctop: Top-like interface for container metrics https://github.com/bcicen/ctop" 40 115
+    # docker run --rm -ti --name=ctop --volume /var/run/docker.sock:/var/run/docker.sock:ro quay.io/vektorlab/ctop:latest
+}
+function DOCKER_CONTAINER_STATUS() {
+    CONTAINERS_STATUS_ALL=$(docker container ls -a --format 'table {{.Names}}    {{.Image}}     {{.Status}}')
+    whiptail --title "DOCKER CONTAINER STATUS" --scrolltext --msgbox "$CONTAINERS_STATUS_ALL" 30 70
+}
+function DOCKER_APPS() {
+while [ true ];
+do
+CHOICE=$(
+whiptail --title "DOCKER APPS" --menu "Choose an option" 18 100 10 \
+    "[ 1 ]" "Portainer install" \
+    "[ c ]" "CTOP: Top-like interface for container" \
+    "[ DCS ]" "DOCKER CONTAINER STATUS" \
+    "[ R ]" "Return to Start Menu" \
+    "[ E ]" "EXIT"  3>&1 1>&2 2>&3
+)
+    # usage;
+    case $CHOICE in
+        "[ 1 ]")
+            Docker_Portainer
+            ;;
+        "[ c ]")
+            CTOP
+            ;;
+        "[ DCS ]")
+            DOCKER_CONTAINER_STATUS
+            ;;
+        "[ R ]")
+            return 0
+            ;;
+        "[ E ]")
+            EXIT
+            clear
+            exit 1
+            ;;
+        *)
+            clear
+            exit 1
+            ;;
+    esac
+done
+}
 function CLEAN() {
 while [ true ];
 do
@@ -162,6 +244,7 @@ whiptail --title "DOCKER RESTORE MENU" --menu "Choose an option" 18 100 10 \
     "[ 4 ]" "Docker install on UBUNTU" \
     "[ 5 ]" "Docker Compose install" \
     "[ 6 ]" "Remove Docker or Docker Compose" \
+    "[ 7 ]" "Docker Apps" \
     "[ E ]" "EXIT"  3>&1 1>&2 2>&3
 )
     # usage;
@@ -183,6 +266,9 @@ whiptail --title "DOCKER RESTORE MENU" --menu "Choose an option" 18 100 10 \
             ;;
         "[ 6 ]")
             CLEAN
+            ;;
+        "[ 7 ]")
+            DOCKER_APPS
             ;;
         "[ E ]")
             EXIT
