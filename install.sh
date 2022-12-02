@@ -136,7 +136,7 @@ function CTOP() {
     )
     if whiptail --title "CTOP" --yesno "$CTOP_ECHO" 20 120; then
         sleep 1
-        docker run --rm -ti --name=ctop --volume /var/run/docker.sock:/var/run/docker.sock:ro alcapone1933/ctop:latest
+        sudo docker run --rm -ti --name=ctop --volume /var/run/docker.sock:/var/run/docker.sock:ro alcapone1933/ctop:latest
         sleep 1
     else
         return 0
