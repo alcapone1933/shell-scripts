@@ -154,19 +154,19 @@ do
 CHOICE=$(
 whiptail --title "DOCKER APPS" --menu "Choose an option" 18 100 10 \
     "[ 1 ]" "Portainer install" \
-    "[ c ]" "CTOP: Top-like interface for container" \
     "[ DCS ]" "DOCKER CONTAINER STATUS" \
     "[ R ]" "Return to Start Menu" \
     "[ E ]" "EXIT"  3>&1 1>&2 2>&3
+#    "[ c ]" "CTOP: Top-like interface for container" \
 )
     # usage;
     case $CHOICE in
         "[ 1 ]")
             Docker_Portainer
             ;;
-        "[ c ]")
-            CTOP
-            ;;
+#        "[ c ]")
+#            CTOP
+#            ;;
         "[ DCS ]")
             DOCKER_CONTAINER_STATUS
             ;;
