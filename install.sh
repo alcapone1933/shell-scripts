@@ -104,11 +104,13 @@ function Docker_Compose_remove() {
     fi
 }
 function Docker_Portainer() {
-    CONTAINERS_STATUS_ALL=$(docker container ls -a --format 'table {{.Names}}    {{.Image}}     {{.Status}}')
-    whiptail --title "DOCKER CONTAINER STATUS" --scrolltext --msgbox "$CONTAINERS_STATUS_ALL" 30 70
+
+    CONTAINERS_STATUS_ALL=$(docker container ls -a --format 'table {{.Names}}	{{.Image}}	{{.Status}}')
+#    CONTAINERS_STATUS_ALL=$(docker container ls -a --format 'table {{.Names}}    {{.Image}}     {{.Status}}')
+    whiptail --title "DOCKER CONTAINER STATUS" --scrolltext --msgbox "$CONTAINERS_STATUS_ALL" 30 110
     Portainer_ECHO=$(
     echo "Portainer install"
-    echo 
+    echo
     echo "docker pull portainer/portainer-ce:latest"
     echo "docker run -d -p 8000:8000 -p 9443:9443 -p 9000:9000 --name=portainer --restart=always \\ \\n-v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest"
     echo
@@ -119,8 +121,8 @@ function Docker_Portainer() {
         sudo docker run -d -p 8000:8000 -p 9443:9443 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
         # TERM=ansi whiptail --title "DOCKER CONTAINER STATUS" --infobox "$CONTAINERS_STATUS_ALL" 30 70
         sleep 2
-        CONTAINERS_STATUS_INSTALL=$(docker container ls -a --format 'table {{.Names}}    {{.Image}}     {{.Status}}')
-        whiptail --title "DOCKER CONTAINER STATUS" --scrolltext --msgbox "$CONTAINERS_STATUS_INSTALL" 30 70
+        CONTAINERS_STATUS_INSTALL=$(docker container ls -a --format 'table {{.Names}}	{{.Image}}	{{.Status}}')
+        whiptail --title "DOCKER CONTAINER STATUS" --scrolltext --msgbox "$CONTAINERS_STATUS_INSTALL" 30 110
     else
         clear
         return 0
@@ -145,8 +147,8 @@ function CTOP() {
     # docker run --rm -ti --name=ctop --volume /var/run/docker.sock:/var/run/docker.sock:ro quay.io/vektorlab/ctop:latest
 }
 function DOCKER_CONTAINER_STATUS() {
-    CONTAINERS_STATUS_ALL=$(docker container ls -a --format 'table {{.Names}}    {{.Image}}     {{.Status}}')
-    whiptail --title "DOCKER CONTAINER STATUS" --scrolltext --msgbox "$CONTAINERS_STATUS_ALL" 30 70
+    CONTAINERS_STATUS_ALL=$(docker container ls -a --format 'table {{.Names}}	{{.Image}}	{{.Status}}')
+    whiptail --title "DOCKER CONTAINER STATUS" --scrolltext --msgbox "$CONTAINERS_STATUS_ALL" 30 110
 }
 function DOCKER_APPS() {
 while [ true ];
