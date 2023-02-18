@@ -192,7 +192,12 @@ curl -sSL \
 https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/tools/ssh-host-connect.sh \
 > ~/ssh-host-connect.sh && chmod +x ~/ssh-host-connect.sh
 ```
-
+Or with Wiptail
+```bash
+curl -sSL \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/tools/ssh-host-connect-whiptail.sh \
+> ~/ssh-host-connect-whiptail.sh && chmod +x ~/ssh-host-connect-whiptail.sh
+```
 ### Usage
 ```txt
 $ ./ssh-host-connect.sh
