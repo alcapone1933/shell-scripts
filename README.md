@@ -78,7 +78,7 @@ Tested working on:
 * Supported platforms for the Script:
   - linux/386
   - linux/amd64
-  - linux/armhf
+  - linux/arm
   - linux/arm64v8
 
 &nbsp;

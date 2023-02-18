@@ -5,7 +5,8 @@ if [ `whoami` != root ]; then
 fi
 # Set the name and download URL of the program
 program_name="shoutrrr"
-program_download_url="https://github.com/containrrr/$program_name/releases/download"
+program_repo="containrrr/shoutrrr"
+program_download_url="https://github.com/${program_repo}/releases/download"
 
 # Print help message
 function print_help {
@@ -19,7 +20,7 @@ function print_help {
     echo "  -u or --update : Check for a new version of $program_name and update if available."
     echo "  -r or --remove : Remove $program_name from the system."
     echo ""
-    echo "  for linux os   : linux_386 linux_amd64 linux_armhf linux_arm64v8"
+    echo "  for linux os   : linux_386 linux_amd64 linux_arm linux_arm64v8"
 }
 # Check if the program is already installed
 function check_installed {
@@ -57,9 +58,9 @@ function install {
     esac
     # Download and extract the program to /usr/local/bin
     echo "Downloading $program_name for $os..."
-    latest_version=$(curl -s https://api.github.com/repos/containrrr/$program_name/releases/latest | grep 'tag_name' | cut -d\" -f4)
+    latest_version=$(curl -s https://api.github.com/repos/${program_repo}/releases/latest | grep 'tag_name' | cut -d\" -f4)
     curl -L# "$program_download_url/$latest_version/${program_name}_${os}.tar.gz" -o /tmp/$program_name.tar.gz
-    tar -xvzf /tmp/$program_name.tar.gz -C /usr/local/bin shoutrrr
+    tar -xvzf /tmp/$program_name.tar.gz -C /usr/local/bin $program_name
     rm -v /tmp/$program_name.tar.gz
     chmod +x /usr/local/bin/$program_name
     # Print the updated version
@@ -94,20 +95,21 @@ function update {
     # Check if an update is available
     echo "Checking for updates to $program_name..."
     current_version=$($program_name --version | cut -d' ' -f3)
-    latest_version=$(curl -s https://api.github.com/repos/containrrr/$program_name/releases/latest | grep 'tag_name' | cut -d\" -f4)
+    latest_version=$(curl -s https://api.github.com/repos/${program_repo}/releases/latest | grep 'tag_name' | cut -d\" -f4)
     if [ "v$current_version" = "$latest_version" ]; then
         echo "$program_name is already up to date."
         return
     fi
-    exit 1
     # Download and extract the program to /usr/local/bin
     echo "Updating $program_name to version $latest_version..."
     curl -L# "$program_download_url/$latest_version/${program_name}_${os}.tar.gz" -o /tmp/$program_name.tar.gz
-    tar -xvzf /tmp/$program_name.tar.gz -C /usr/local/bin shoutrrr
+    remove
+    tar -xvzf /tmp/$program_name.tar.gz -C /usr/local/bin $program_name
     rm -v /tmp/$program_name.tar.gz
     chmod +x /usr/local/bin/$program_name
     # Print the updated version
     $program_name --version
+    echo "Programm $program_name is Updating to version $latest_version..."
 }
 
 # Remove the program from the system
