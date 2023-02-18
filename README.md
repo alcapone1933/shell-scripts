@@ -67,6 +67,50 @@ https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/dock
 ```
 </details>
 
+<details>
+<summary markdown="span">Shoutrrr cli install</summary>
+
+&nbsp;
+
+Tested working on:
+
+* :white_check_mark: Debian 11
+* Supported platforms for the Script:
+  - linux/386
+  - linux/amd64
+  - linux/armhf
+  - linux/arm64v8
+
+&nbsp;
+
+### Shoutrrr cli install
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/shoutrrr-cli-install.sh | sudo bash -s -- --install
+```
+
+### Shoutrrr cli update
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/shoutrrr-cli-install.sh | sudo bash -s -- --update
+```
+### Shoutrrr cli remove
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/shoutrrr-cli-install.sh | sudo bash -s -- --remove
+```
+### Shoutrrr cli manuel download
+```bash
+wget -q -O shoutrrr-cli-install.sh \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/shoutrrr-cli-install.sh
+
+chmod +x shoutrrr-cli-install.sh
+
+./shoutrrr-cli-install.sh
+```
+
+</details>
+
 &nbsp;
 
 ## Bash TOOLS
