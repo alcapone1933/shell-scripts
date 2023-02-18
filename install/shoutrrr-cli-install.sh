@@ -1,8 +1,10 @@
 #!/bin/bash
+
 if [ `whoami` != root ]; then
     echo Please run this script as root or using sudo
     exit 1
 fi
+
 # Set the name and download URL of the program
 program_name="shoutrrr"
 program_repo="containrrr/shoutrrr"
@@ -12,7 +14,7 @@ program_download_url="https://github.com/${program_repo}/releases/download"
 function print_help {
     echo "Usage: $0 [--help|--install|--update|--remove]"
     echo ""
-    echo "shoutrrr cli install script"
+    echo "  shoutrrr cli install script"
     echo ""
     echo "  -h or --help   : HELP OUTPUT"
     echo ""
@@ -20,8 +22,9 @@ function print_help {
     echo "  -u or --update : Check for a new version of $program_name and update if available."
     echo "  -r or --remove : Remove $program_name from the system."
     echo ""
-    echo "  for linux os   : linux_386 linux_amd64 linux_arm linux_arm64v8"
+    echo "  for linux os   : linux/386 linux/amd64 linux/arm linux/arm64"
 }
+
 # Check if the program is already installed
 function check_installed {
     if [ -x "$(command -v $program_name)" ]; then
@@ -101,7 +104,7 @@ function update {
         return
     fi
     # Download and extract the program to /usr/local/bin
-    echo "Updating $program_name to version $latest_version..."
+    echo "Updating $program_name from v$current_version to $latest_version version..."
     curl -L# "$program_download_url/$latest_version/${program_name}_${os}.tar.gz" -o /tmp/$program_name.tar.gz
     remove
     tar -xvzf /tmp/$program_name.tar.gz -C /usr/local/bin $program_name
@@ -109,7 +112,7 @@ function update {
     chmod +x /usr/local/bin/$program_name
     # Print the updated version
     $program_name --version
-    echo "Programm $program_name is Updating to version $latest_version..."
+    echo "Programm $program_name is Updating from v$current_version to $latest_version version ..."
 }
 
 # Remove the program from the system

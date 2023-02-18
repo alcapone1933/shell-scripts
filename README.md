@@ -79,7 +79,7 @@ Tested working on:
   - linux/386
   - linux/amd64
   - linux/arm
-  - linux/arm64v8
+  - linux/arm64
 
 &nbsp;
 
@@ -107,6 +107,50 @@ https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/shou
 chmod +x shoutrrr-cli-install.sh
 
 ./shoutrrr-cli-install.sh
+```
+
+</details>
+
+<details>
+<summary markdown="span">Drone cli install</summary>
+
+&nbsp;
+
+Tested working on:
+
+* :white_check_mark: Debian 11
+* Supported platforms for the Script:
+  - linux/amd64
+  - linux/arm
+  - linux/arm64
+  - linux/ppc64le
+
+&nbsp;
+
+### Drone cli install
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/drone-cli-install.sh | sudo bash -s -- --install
+```
+
+### Drone cli update
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/drone-cli-install.sh | sudo bash -s -- --update
+```
+### Drone cli remove
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/drone-cli-install.sh | sudo bash -s -- --remove
+```
+### Drone cli manuel download
+```bash
+wget -q -O drone-cli-install.sh \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/drone-cli-install.sh
+
+chmod +x drone-cli-install.sh
+
+./drone-cli-install.sh
 ```
 
 </details>
