@@ -1,5 +1,8 @@
 #!/bin/bash
-
+if [ `whoami` != root ]; then
+    echo Please run this script as root or using sudo
+    exit 1
+fi
 # Set the name and download URL of the program
 program_name="shoutrrr"
 program_download_url="https://github.com/containrrr/$program_name/releases/download"
