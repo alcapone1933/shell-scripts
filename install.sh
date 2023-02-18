@@ -31,7 +31,7 @@ fi
 function Docker_and_Compose_install_on_DEBIAN() {
     if whiptail --yesno "Docker and Compose install on DEBIAN" 10 45; then
         wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-and-compose-debian-install.sh | sudo bash
-        whiptail --title "Docker Version" --no-button ok  --msgbox "`docker -v`   |   `docker-compose version`" 8 80
+        whiptail --title "Docker Version" --no-button ok --msgbox "`docker -v`   |   `docker-compose version`" 8 80
     else
         clear
         return 0
@@ -40,7 +40,7 @@ function Docker_and_Compose_install_on_DEBIAN() {
 function Docker_and_Compose_install_on_UBUNTU() {
     if whiptail --yesno "Docker and Compose install on UBUNTU" 10 45; then
         wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-and-compose-ubuntu-install.sh | sudo bash
-        whiptail --title "Docker Version" --no-button ok  --msgbox "`docker -v`   |   `docker-compose version`" 8 80
+        whiptail --title "Docker Version" --no-button ok --msgbox "`docker -v`   |   `docker-compose version`" 8 80
     else
         clear
         return 0
@@ -49,7 +49,7 @@ function Docker_and_Compose_install_on_UBUNTU() {
 function Docker_install_on_DEBIAN() {
     if whiptail --yesno "Docker install on DEBIAN" 10 45; then
         wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-debian-install.sh | sudo bash
-        whiptail --title "Docker Version" --no-button ok  --msgbox "`docker -v`" 8 42
+        whiptail --title "Docker Version" --no-button ok --msgbox "`docker -v`" 8 42
     else
         clear
         return 0
@@ -58,7 +58,7 @@ function Docker_install_on_DEBIAN() {
 function Docker_install_on_UBUNTU() {
     if whiptail --yesno "Docker install on UBUNTU" 10 45; then
         wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-ubuntu-install.sh | sudo bash
-        whiptail --title "Docker Version" --no-button ok  --msgbox "`docker -v`" 8 42
+        whiptail --title "Docker Version" --no-button ok --msgbox "`docker -v`" 8 42
     else
         clear
         return 0
@@ -67,7 +67,7 @@ function Docker_install_on_UBUNTU() {
 function Docker_Compose_install() {
     if whiptail --yesno "Docker Compose install" 10 45; then
         wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-compose-install.sh | sudo bash
-        whiptail --title "Docker Version" --no-button ok  --msgbox "`docker-compose version`" 8 34
+        whiptail --title "Docker Version" --no-button ok --msgbox "`docker-compose version`" 8 34
     else
         clear
         return 0
@@ -104,7 +104,6 @@ function Docker_Compose_remove() {
     fi
 }
 function Docker_Portainer() {
-
     CONTAINERS_STATUS_ALL=$(docker container ls -a --format 'table {{.Names}}	{{.Image}}	{{.Status}}')
 #    CONTAINERS_STATUS_ALL=$(docker container ls -a --format 'table {{.Names}}    {{.Image}}     {{.Status}}')
     whiptail --title "DOCKER CONTAINER STATUS" --scrolltext --msgbox "$CONTAINERS_STATUS_ALL" 30 110
@@ -123,6 +122,64 @@ function Docker_Portainer() {
         sleep 2
         CONTAINERS_STATUS_INSTALL=$(docker container ls -a --format 'table {{.Names}}	{{.Image}}	{{.Status}}')
         whiptail --title "DOCKER CONTAINER STATUS" --scrolltext --msgbox "$CONTAINERS_STATUS_INSTALL" 30 110
+    else
+        clear
+        return 0
+    fi
+}
+function SHOUTRRR_INSTALL() {
+    if whiptail --yesno "Shoutrre CLI Install" 10 45; then
+        wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/shoutrrr-cli-install.sh | sudo bash -s -- --install
+        whiptail --title "Shoutrre CLI Version" --no-button ok --msgbox "`shoutrrr --version`" 8 34
+    else
+        clear
+        return 0
+    fi
+}
+function SHOUTRRR_UPDATE() {
+    if whiptail --yesno "Shoutrre CLI Update" 10 45; then
+        current_version=$(shoutrrr --version)
+        wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/shoutrrr-cli-install.sh | sudo bash -s -- --update
+        whiptail --title "Shoutrre CLI Version" --no-button ok --msgbox "OLD: $current_version | NEW: `shoutrrr --version`" 8 80
+    else
+        clear
+        return 0
+    fi
+}
+function SHOUTRRR_REMOVE() {
+    if whiptail --yesno "Shoutrre CLI Remove" 10 45; then
+        current_version=$(shoutrrr --version)
+        wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/shoutrrr-cli-install.sh | sudo bash -s -- --remove
+        whiptail --title "Shoutrre CLI Version" --no-button ok --msgbox "OLD: $current_version | NEW: `shoutrrr --version`" 8 80
+    else
+        clear
+        return 0
+    fi
+}
+function DRONE_CLI_INSTALL() {
+    if whiptail --yesno "Drone CLI Install" 10 45; then
+        wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/drone-cli-install.sh | sudo bash -s -- --install
+        whiptail --title "Drone CLI Version" --no-button ok --msgbox "`drone --version`" 8 34
+    else
+        clear
+        return 0
+    fi
+}
+function DRONE_CLI_UPDATE() {
+    if whiptail --yesno "Drone CLI Update" 10 45; then
+        current_version=$(drone --version)
+        wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/drone-cli-install.sh | sudo bash -s -- --update
+        whiptail --title "Drone CLI Version" --no-button ok --msgbox "OLD: $current_version | NEW: `drone --version`" 8 80
+    else
+        clear
+        return 0
+    fi
+}
+function DRONE_CLI_REMOVE() {
+    if whiptail --yesno "Drone CLI Remove" 10 45; then
+        current_version=$(drone --version)
+        wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/drone-cli-install.sh | sudo bash -s -- --remove
+        whiptail --title "Drone CLI Version" --no-button ok --msgbox "OLD: $current_version | NEW: `drone --version`" 8 80
     else
         clear
         return 0
@@ -187,6 +244,48 @@ whiptail --title "DOCKER APPS" --menu "Choose an option" 18 100 10 \
     esac
 done
 }
+
+function CLI_APPS() {
+while [ true ];
+do
+CHOICE=$(
+whiptail --title "CLI APPS" --menu "Choose an option" 18 100 10 \
+    "[ 1 ]" "Shoutrre CLI Install" \
+    "[ 2 ]" "Shoutrre CLI Update" \
+    "[ 3 ]" "Drone CLI Install" \
+    "[ 4 ]" "Drone CLI Update" \
+    "[ R ]" "Return to Start Menu" \
+    "[ E ]" "EXIT"  3>&1 1>&2 2>&3
+)
+    # usage;
+    case $CHOICE in
+        "[ 1 ]")
+            SHOUTRRR_INSTALL
+            ;;
+        "[ 2 ]")
+            SHOUTRRR_UPDATE
+            ;;
+        "[ 3 ]")
+            DRONE_CLI_INSTALL
+            ;;
+        "[ 4 ]")
+            DRONE_CLI_UPDATE
+            ;;
+        "[ R ]")
+            return 0
+            ;;
+        "[ E ]")
+            EXIT
+            clear
+            exit 1
+            ;;
+        *)
+            clear
+            exit 1
+            ;;
+    esac
+done
+}
 function CLEAN() {
 while [ true ];
 do
@@ -195,6 +294,8 @@ whiptail --title "DOCKER RESTORE MENU" --menu "Choose an option" 18 100 10 \
     "[ 1 ]" "Docker and Compose Remove" \
     "[ 2 ]" "Docker Remove" \
     "[ 3 ]" "Docker Compose Remove" \
+    "[ 4 ]" "Shoutrre CLI Remove" \
+    "[ 5 ]" "Drone CLI Remove" \
     "[ R ]" "Return to Start Menu" \
     "[ E ]" "EXIT"  3>&1 1>&2 2>&3
 )
@@ -208,6 +309,12 @@ whiptail --title "DOCKER RESTORE MENU" --menu "Choose an option" 18 100 10 \
             ;;
         "[ 3 ]")
             Docker_Compose_remove
+            ;;
+        "[ 4 ]")
+            SHOUTRRR_REMOVE
+            ;;
+        "[ 5 ]")
+            DRONE_CLI_REMOVE
             ;;
         "[ R ]")
             return 0
@@ -245,8 +352,9 @@ whiptail --title "DOCKER RESTORE MENU" --menu "Choose an option" 18 100 10 \
     "[ 3 ]" "Docker install on DEBIAN" \
     "[ 4 ]" "Docker install on UBUNTU" \
     "[ 5 ]" "Docker Compose install" \
-    "[ 6 ]" "Remove Docker or Docker Compose" \
+    "[ 6 ]" "Remove Docker or Docker Compose or CLI Apps" \
     "[ 7 ]" "Docker Apps" \
+    "[ 8 ]" "CLI Apps" \
     "[ E ]" "EXIT"  3>&1 1>&2 2>&3
 )
     # usage;
@@ -271,6 +379,9 @@ whiptail --title "DOCKER RESTORE MENU" --menu "Choose an option" 18 100 10 \
             ;;
         "[ 7 ]")
             DOCKER_APPS
+            ;;
+        "[ 8 ]")
+            CLI_APPS
             ;;
         "[ E ]")
             EXIT
