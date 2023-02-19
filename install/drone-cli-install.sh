@@ -44,10 +44,10 @@ function install {
         x86_64|amd64)
             os="linux_amd64"
             ;;
-        armv7l)
+        armv7l|armhf)
             os="linux_arm"
             ;;
-        aarch64)
+        aarch64|arm64)
             os="linux_arm64"
             ;;
         ppc64le)
