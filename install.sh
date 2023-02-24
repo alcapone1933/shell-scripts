@@ -4,16 +4,15 @@ if [ `whoami` != root ]; then
     echo Please run this script as root or using sudo
     exit 1
 fi
-
-if [ -f "/usr/bin/whiptail" ]; then
+if command -v whiptail >/dev/null 2>&1; then
     echo > /dev/null
 else
-    echo
+    echo ""
     echo " Whiptail not installed"
     echo " Install Whiptail"
     echo " ==> sudo apt update && sudo apt install whiptail <== "
-    echo
-    echo
+    echo ""
+    echo ""
     echo " DO you want to install Whiptail for Debian / Mint / Ubuntu"
     echo "========================================="
     echo "[ Y ] - INSTALL WHIPTAIL"
@@ -24,10 +23,11 @@ else
     if [[ "$value_whiptail" =~ (y|Y) ]]; then
         sudo apt update && apt install whiptail -yq
     else
-        echo
+        echo ""
         exit 1
     fi
 fi
+
 function Docker_and_Compose_install_on_DEBIAN() {
     if whiptail --yesno "Docker and Compose install on DEBIAN" 10 45; then
         wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-and-compose-debian-install.sh | sudo bash
