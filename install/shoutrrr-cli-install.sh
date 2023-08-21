@@ -49,10 +49,10 @@ function install {
             os="linux_amd64"
             ;;
         armv7l|armhf)
-            os="linux_armhf"
+            os="linux_armv6"
             ;;
         aarch64|arm64)
-            os="linux_arm64v8"
+            os="linux_arm64"
             ;;
          *)
             echo "Unsupported architecture: $(uname -m). Please use the --os option to specify the operating system architecture."
@@ -85,10 +85,10 @@ function update {
             os="linux_amd64"
             ;;
         armv7l|armhf)
-            os="linux_armhf"
+            os="linux_armv6"
             ;;
         aarch64|arm64)
-            os="linux_arm64v8"
+            os="linux_arm64"
             ;;
          *)
             echo "Unsupported architecture: $(uname -m). Please use the --os option to specify the operating system architecture."
