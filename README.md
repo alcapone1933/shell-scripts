@@ -7,7 +7,7 @@
 
 Tested working on:
 
-* :white_check_mark: Debian 11, Ubuntu 22
+* :white_check_mark: Debian 11, Debian 12, Ubuntu 22
 
 &nbsp;
 
@@ -74,7 +74,7 @@ https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/dock
 
 Tested working on:
 
-* :white_check_mark: Debian 11
+* :white_check_mark: Debian 11, Debian 12, Ubuntu 22
 * Supported platforms for the Script:
   - linux/386
   - linux/amd64
@@ -118,7 +118,7 @@ chmod +x shoutrrr-cli-install.sh
 
 Tested working on:
 
-* :white_check_mark: Debian 11
+* :white_check_mark: Debian 11, Debian 12, Ubuntu 22
 * Supported platforms for the Script:
   - linux/amd64
   - linux/arm
