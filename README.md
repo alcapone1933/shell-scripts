@@ -19,8 +19,7 @@ sudo apt install whiptail -y
 Run the script and click through the Menu
 
 ```bash
-wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install.sh | sudo bash
-
+wget -O /tmp/install.sh https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install.sh && sudo bash /tmp/install.sh && rm /tmp/install.sh
 ```
 
 ## Automate installation
@@ -60,7 +59,7 @@ wget -q -O - \
 https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-ubuntu-install.sh | sudo bash
 ```
 
-### Docker Compose install
+### Docker Compose install and update
 ```bash
 wget -q -O - \
 https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-compose-install.sh | sudo bash
