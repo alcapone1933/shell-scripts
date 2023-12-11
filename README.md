@@ -32,7 +32,7 @@ wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master
 
 Tested working on:
 
-* :white_check_mark: Debian 11, Ubuntu 22
+* :white_check_mark: Debian 11, Debian 11, Ubuntu 22
 
 &nbsp;
 
