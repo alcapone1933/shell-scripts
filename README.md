@@ -19,7 +19,9 @@ sudo apt install whiptail -y
 Run the script and click through the Menu
 
 ```bash
-wget -O /tmp/install.sh https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install.sh && sudo bash /tmp/install.sh && rm /tmp/install.sh
+wget -O /tmp/install.sh https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install.sh && sudo bash /tmp/install.sh
+
+rm /tmp/install.sh
 ```
 
 ## Automate installation
