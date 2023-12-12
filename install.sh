@@ -75,7 +75,7 @@ function Docker_Compose_install() {
 }
 function Docker_and_Compose_remove() {
     if whiptail --yesno "Docker and Compose Remove" 10 45; then
-        sudo apt-get remove --purge docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+        sudo apt-get remove --purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
         sudo apt-get autoremove -y
         rm -vrf /usr/local/bin/docker-compose && rm -vrf /usr/bin/docker-compose
         clear
@@ -86,7 +86,7 @@ function Docker_and_Compose_remove() {
 }
 function Docker_remove() {
     if whiptail --yesno "Docker Remove" 10 45; then
-        sudo apt-get remove --purge docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+        sudo apt-get remove --purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
         sudo apt-get autoremove -y
         clear
     else
