@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ `whoami` != root ]; then
-    echo Please run this script as root or using sudo
+    echo "Please run this script as root or using sudo"
     exit 1
 fi
 
@@ -22,7 +22,7 @@ function print_help {
     echo "  -u or --update : Check for a new version of $program_name and update if available."
     echo "  -r or --remove : Remove $program_name from the system."
     echo ""
-    echo "  for linux os   : linux/amd64 linux/arm linux/arm linux/ppc64le"
+    echo "  for linux os   : linux/amd64 linux/arm linux/arm64 linux/ppc64le"
 }
 # Check if the program is already installed
 function check_installed {
@@ -77,9 +77,6 @@ function update {
     fi
     # Determine the operating system architecture
     case $(uname -m) in
-        i386|i686)
-            os="linux_386"
-            ;;
         x86_64|amd64)
             os="linux_amd64"
             ;;
@@ -88,6 +85,9 @@ function update {
             ;;
         aarch64|arm64)
             os="linux_arm64v8"
+            ;;
+        ppc64le)
+            os="linux_ppc64le"
             ;;
          *)
             echo "Unsupported architecture: $(uname -m). Please use the --os option to specify the operating system architecture."

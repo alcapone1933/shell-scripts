@@ -66,6 +66,7 @@ https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/dock
 wget -q -O - \
 https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/docker-compose-install.sh | sudo bash
 ```
+
 </details>
 
 <details>
@@ -152,6 +153,49 @@ https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/dron
 chmod +x drone-cli-install.sh
 
 ./drone-cli-install.sh
+```
+
+</details>
+
+<details>
+<summary markdown="span">carapace-bin install</summary>
+
+&nbsp;
+
+Tested working on:
+
+* :white_check_mark: Debian 11, Debian 12, Ubuntu 22
+* Supported platforms for the Script:
+  - linux/386
+  - linux/amd64
+  - linux/arm64
+
+&nbsp;
+
+### carapace-bin install
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/carapace-bin-install.sh | sudo bash -s -- --install
+```
+
+### carapace-bin update
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/carapace-bin-install.sh | sudo bash -s -- --update
+```
+### carapace-bin remove
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/carapace-bin-install.sh | sudo bash -s -- --remove
+```
+### carapace-bin manuel download
+```bash
+wget -q -O carapace-bin-install.sh \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/carapace-bin-install.sh
+
+chmod +x carapace-bin-install.sh
+
+./carapace-bin-install.sh
 ```
 
 </details>
