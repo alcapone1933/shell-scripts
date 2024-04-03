@@ -8,7 +8,7 @@ fi
 # Set the name and download URL of the program
 program_name="carapace-bin"
 program_cmd="carapace"
-program_repo="rsteube/carapace-bin"
+program_repo="carapace-sh/carapace-bin"
 program_download_url="https://github.com/${program_repo}/releases/download"
 
 # Print help message
