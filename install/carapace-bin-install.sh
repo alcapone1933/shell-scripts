@@ -91,7 +91,8 @@ function update {
     esac
     # Check if an update is available
     echo "Checking for updates to $program_name..."
-    current_version=$($program_cmd --version | grep -oP "[0-9]+\.[0-9]+\.[0-9]+")
+    # current_version=$($program_cmd --version | grep -oP "[0-9]+\.[0-9]+\.[0-9]+")
+    current_version=$($program_cmd --version 2>&1)
     latest_version=$(curl -s https://api.github.com/repos/${program_repo}/releases/latest | grep 'tag_name' | cut -d\" -f4)
     if [ "v$current_version" = "$latest_version" ]; then
         echo "$program_name is already up to date."
