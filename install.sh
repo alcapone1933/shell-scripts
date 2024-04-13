@@ -185,6 +185,35 @@ function DRONE_CLI_REMOVE() {
         return 0
     fi
 }
+function CARAPACE_BIN_INSTALL() {
+    if whiptail --yesno "carapace-bin Install" 10 45; then
+        wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/carapace-bin-install.sh | sudo bash -s -- --install
+        whiptail --title "carapace-bin Version" --no-button ok --msgbox "`carapace --version 2>&1`" 8 34
+    else
+        clear
+        return 0
+    fi
+}
+function CARAPACE_BIN_UPDATE() {
+    if whiptail --yesno "carapace-bin Update" 10 45; then
+        current_version=$(carapace --version 2>&1)
+        wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/carapace-bin-install.sh | sudo bash -s -- --update
+        whiptail --title "carapace-bin Version" --no-button ok --msgbox "OLD: $current_version | NEW: `carapace --version 2>&1`" 8 80
+    else
+        clear
+        return 0
+    fi
+}
+function CARAPACE_BIN_REMOVE() {
+    if whiptail --yesno "carapace-bin Remove" 10 45; then
+        current_version=$(carapace --version 2>&1)
+        wget -q -O - https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/carapace-bin-install.sh | sudo bash -s -- --remove
+        whiptail --title "carapace-bin Version" --no-button ok --msgbox "OLD: $current_version | NEW: `carapace --version 2>&1`" 8 80
+    else
+        clear
+        return 0
+    fi
+}
 function CTOP() {
     CTOP_ECHO=$(
     echo "ctop: Top-like interface for container metrics https://github.com/bcicen/ctop"
@@ -254,6 +283,8 @@ whiptail --title "CLI APPS" --menu "Choose an option" 18 100 10 \
     "[ 2 ]" "Shoutrre CLI Update" \
     "[ 3 ]" "Drone CLI Install" \
     "[ 4 ]" "Drone CLI Update" \
+    "[ 5 ]" "Carapace-bin Install" \
+    "[ 6 ]" "Carapace-bin Update" \
     "[ R ]" "Return to Start Menu" \
     "[ E ]" "EXIT"  3>&1 1>&2 2>&3
 )
@@ -270,6 +301,12 @@ whiptail --title "CLI APPS" --menu "Choose an option" 18 100 10 \
             ;;
         "[ 4 ]")
             DRONE_CLI_UPDATE
+            ;;
+        "[ 5 ]")
+            CARAPACE_BIN_INSTALL
+            ;;
+        "[ 6 ]")
+            CARAPACE_BIN_UPDATE
             ;;
         "[ R ]")
             return 0
@@ -296,6 +333,7 @@ whiptail --title "DOCKER RESTORE MENU" --menu "Choose an option" 18 100 10 \
     "[ 3 ]" "Docker Compose Remove" \
     "[ 4 ]" "Shoutrre CLI Remove" \
     "[ 5 ]" "Drone CLI Remove" \
+    "[ 6 ]" "Carapace-bin Remove" \
     "[ R ]" "Return to Start Menu" \
     "[ E ]" "EXIT"  3>&1 1>&2 2>&3
 )
@@ -315,6 +353,9 @@ whiptail --title "DOCKER RESTORE MENU" --menu "Choose an option" 18 100 10 \
             ;;
         "[ 5 ]")
             DRONE_CLI_REMOVE
+            ;;
+        "[ 6 ]")
+            CARAPACE_BIN_REMOVE
             ;;
         "[ R ]")
             return 0
