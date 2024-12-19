@@ -95,7 +95,7 @@ function update {
     current_version=$($program_cmd --version 2>&1 | sed 's/.* //')
     # current_version=$($program_cmd --version 2>&1 | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
     # current_version=$($program_cmd --version 2>&1 | awk '/[0-9]+\.[0-9]+\.[0-9]+/ {print $NF}')
-    current_version=$($program_cmd --version 2>&1)
+    # current_version=$($program_cmd --version 2>&1)
     latest_version=$(curl -s https://api.github.com/repos/${program_repo}/releases/latest | grep 'tag_name' | cut -d\" -f4)
     latest_version_number=$(echo "$latest_version" | sed 's/^v//')
 
