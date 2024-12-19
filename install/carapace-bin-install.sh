@@ -59,7 +59,8 @@ function install {
     # Download and extract the program to /usr/local/bin
     echo "Downloading $program_name for $os..."
     latest_version=$(curl -s https://api.github.com/repos/${program_repo}/releases/latest | grep 'tag_name' | cut -d\" -f4)
-    curl -L# "$program_download_url/$latest_version/${program_name}_${os}.tar.gz" -o /tmp/$program_name.tar.gz
+    latest_version_number=$(echo "$latest_version" | sed 's/^v//')
+    curl -L# "$program_download_url/$latest_version/${program_name}_${latest_version_number}_${os}.tar.gz" -o /tmp/$program_name.tar.gz
     tar -xvzf /tmp/$program_name.tar.gz -C /usr/local/bin $program_cmd
     rm -v /tmp/$program_name.tar.gz
     chmod +x /usr/local/bin/$program_cmd
@@ -94,13 +95,14 @@ function update {
     # current_version=$($program_cmd --version | grep -oP "[0-9]+\.[0-9]+\.[0-9]+")
     current_version=$($program_cmd --version 2>&1)
     latest_version=$(curl -s https://api.github.com/repos/${program_repo}/releases/latest | grep 'tag_name' | cut -d\" -f4)
+    latest_version_number=$(echo "$latest_version" | sed 's/^v//')
     if [ "v$current_version" = "$latest_version" ]; then
         echo "$program_name is already up to date."
         return
     fi
     # Download and extract the program to /usr/local/bin
     echo "Updating $program_name from v$current_version to $latest_version version..."
-    curl -L# "$program_download_url/$latest_version/${program_name}_${os}.tar.gz" -o /tmp/$program_name.tar.gz
+    curl -L# "$program_download_url/$latest_version/${program_name}_${latest_version_number}_${os}.tar.gz" -o /tmp/$program_name.tar.gz
     remove
     tar -xvzf /tmp/$program_name.tar.gz -C /usr/local/bin $program_cmd
     rm -v /tmp/$program_name.tar.gz
