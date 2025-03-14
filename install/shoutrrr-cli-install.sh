@@ -54,13 +54,13 @@ function install {
         aarch64|arm64)
             os="linux_arm64"
             ;;
-         *)
+        *)
             echo "Unsupported architecture: $(uname -m). Please use the --os option to specify the operating system architecture."
             return
             ;;
     esac
     # Download and extract the program to /usr/local/bin
-    echo "Downloading $program_name for $os..."
+    echo "Downloading $program_name for $os ..."
     latest_version=$(curl -s https://api.github.com/repos/${program_repo}/releases/latest | grep 'tag_name' | cut -d\" -f4)
     curl -L# "$program_download_url/$latest_version/${program_name}_${os}.tar.gz" -o /tmp/$program_name.tar.gz
     tar -xvzf /tmp/$program_name.tar.gz -C /usr/local/bin $program_name
@@ -90,13 +90,13 @@ function update {
         aarch64|arm64)
             os="linux_arm64"
             ;;
-         *)
+        *)
             echo "Unsupported architecture: $(uname -m). Please use the --os option to specify the operating system architecture."
             return
             ;;
     esac
     # Check if an update is available
-    echo "Checking for updates to $program_name..."
+    echo "Checking for updates to $program_name ..."
     current_version=$($program_name --version | cut -d' ' -f3)
     latest_version=$(curl -s https://api.github.com/repos/${program_repo}/releases/latest | grep 'tag_name' | cut -d\" -f4)
     if [ "v$current_version" = "$latest_version" ]; then
@@ -104,7 +104,7 @@ function update {
         return
     fi
     # Download and extract the program to /usr/local/bin
-    echo "Updating $program_name from v$current_version to $latest_version version..."
+    echo "Updating $program_name from v$current_version to $latest_version version ..."
     curl -L# "$program_download_url/$latest_version/${program_name}_${os}.tar.gz" -o /tmp/$program_name.tar.gz
     remove
     tar -xvzf /tmp/$program_name.tar.gz -C /usr/local/bin $program_name
@@ -124,7 +124,7 @@ function remove {
     fi
 
     # Remove the program binary from /usr/local/bin
-    echo "Removing $program_name..."
+    echo "Removing $program_name ..."
     rm -v /usr/local/bin/$program_name
 
     if check_installed; then
@@ -155,7 +155,7 @@ while [[ $# -gt 0 ]]; do
             remove
             exit
             ;;
-         *)
+        *)
             echo "Invalid option: $key"
             print_help
             exit 1

@@ -200,6 +200,49 @@ chmod +x carapace-bin-install.sh
 
 </details>
 
+<details>
+<summary markdown="span">Pueue cli install</summary>
+
+&nbsp;
+
+Tested working on:
+
+* :white_check_mark: Debian 11, Debian 12, Ubuntu 22 , Ubuntu 24
+* Supported platforms for the Script:
+  - linux/amd64
+  - linux/arm
+  - linux/arm64
+
+&nbsp;
+
+### pueue-cli install
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/pueue-cli-install.sh | sudo bash -s -- --install
+```
+
+### pueue-cli update
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/pueue-cli-install.sh | sudo bash -s -- --update
+```
+### pueue-cli remove
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/pueue-cli-install.sh | sudo bash -s -- --remove
+```
+### pueue-cli manuel download
+```bash
+wget -q -O pueue-cli-install.sh \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/pueue-cli-install.sh
+
+chmod +x pueue-cli-install.sh
+
+./pueue-cli-install.sh
+```
+
+</details>
+
 &nbsp;
 
 ## Bash TOOLS
