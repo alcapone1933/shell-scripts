@@ -207,7 +207,7 @@ chmod +x carapace-bin-install.sh
 
 Tested working on:
 
-* :white_check_mark: Debian 11, Debian 12, Ubuntu 22 , Ubuntu 24
+* :white_check_mark: Debian 11, Debian 12, Ubuntu 22 , Ubuntu 24, Alpine 3.22
 * Supported platforms for the Script:
   - linux/amd64
   - linux/arm
@@ -239,6 +239,49 @@ https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/pueu
 chmod +x pueue-cli-install.sh
 
 ./pueue-cli-install.sh
+```
+
+</details>
+
+<details>
+<summary markdown="span">scrutiny-collector-metrics cli install</summary>
+
+&nbsp;
+
+Tested working on:
+
+* :white_check_mark: Debian 11, Debian 12, Ubuntu 22 , Ubuntu 24, Alpine 3.22
+* Supported platforms for the Script:
+  - linux/amd64
+  - linux/arm
+  - linux/arm64
+
+&nbsp;
+
+### scrutiny-collector-metrics-cli install
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/scrutiny-collector-metrics-cli-install.sh | sudo bash -s -- --install
+```
+
+### scrutiny-collector-metrics-cli update
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/scrutiny-collector-metrics-cli-install.sh | sudo bash -s -- --update
+```
+### scrutiny-collector-metrics-cli remove
+```bash
+wget -q -O - \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/scrutiny-collector-metrics-cli-install.sh | sudo bash -s -- --remove
+```
+### scrutiny-collector-metrics-cli manuel download
+```bash
+wget -q -O scrutiny-collector-metrics-cli-install.sh \
+https://raw.githubusercontent.com/alcapone1933/shell-scripts/master/install/scrutiny-collector-metrics-cli-install.sh
+
+chmod +x scrutiny-collector-metrics-cli-install.sh
+
+./scrutiny-collector-metrics-cli-install.sh
 ```
 
 </details>
