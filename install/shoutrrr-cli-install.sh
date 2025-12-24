@@ -106,12 +106,12 @@ function update {
     echo "Checking for updates to $program_name ..."
     current_version=$($program_name --version | cut -d' ' -f3)
     latest_version=$(curl -s https://api.github.com/repos/${program_repo}/releases/latest | grep 'tag_name' | cut -d\" -f4)
-    if [ "v$current_version" = "$latest_version" ]; then
+    if [ "$current_version" = "$latest_version" ]; then
         echo "$program_name is already up to date."
         return
     fi
     # Download and extract the program to /usr/local/bin
-    echo "Updating $program_name from v$current_version to $latest_version version ..."
+    echo "Updating $program_name from $current_version to $latest_version version ..."
     # curl -L# "$program_download_url/$latest_version/${program_name}_${os}.tar.gz" -o /tmp/$program_name.tar.gz
     curl -L# "$program_download_url/$latest_version/${program_name}_${os}_${latest_version#v}.tar.gz" -o /tmp/$program_name.tar.gz
     remove
@@ -120,7 +120,7 @@ function update {
     chmod +x /usr/local/bin/$program_name
     # Print the updated version
     $program_name --version
-    echo "Programm $program_name is Updating from v$current_version to $latest_version version ..."
+    echo "Programm $program_name is Updating from $current_version to $latest_version version ..."
 }
 
 # Remove the program from the system
