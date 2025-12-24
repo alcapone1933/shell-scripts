@@ -53,6 +53,7 @@ function install {
             ;;
         aarch64|arm64)
             os="linux_arm64"
+            ;;
         riscv64)
             os="linux_riscv64"
             ;;
@@ -92,6 +93,9 @@ function update {
             ;;
         aarch64|arm64)
             os="linux_arm64"
+            ;;
+        riscv64)
+            os="linux_riscv64"
             ;;
         *)
             echo "Unsupported architecture: $(uname -m). Please use the --os option to specify the operating system architecture."
