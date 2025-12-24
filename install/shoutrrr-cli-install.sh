@@ -7,7 +7,7 @@ fi
 
 # Set the name and download URL of the program
 program_name="shoutrrr"
-program_repo="containrrr/shoutrrr"
+program_repo="nicholas-fedor/shoutrrr"
 program_download_url="https://github.com/${program_repo}/releases/download"
 
 # Print help message
@@ -53,6 +53,8 @@ function install {
             ;;
         aarch64|arm64)
             os="linux_arm64"
+        riscv64)
+            os="linux_riscv64"
             ;;
         *)
             echo "Unsupported architecture: $(uname -m). Please use the --os option to specify the operating system architecture."
@@ -62,7 +64,8 @@ function install {
     # Download and extract the program to /usr/local/bin
     echo "Downloading $program_name for $os ..."
     latest_version=$(curl -s https://api.github.com/repos/${program_repo}/releases/latest | grep 'tag_name' | cut -d\" -f4)
-    curl -L# "$program_download_url/$latest_version/${program_name}_${os}.tar.gz" -o /tmp/$program_name.tar.gz
+    # curl -L# "$program_download_url/$latest_version/${program_name}_${os}.tar.gz" -o /tmp/$program_name.tar.gz
+    curl -L# "$program_download_url/$latest_version/${program_name}_${os}_${latest_version#v}.tar.gz" -o /tmp/$program_name.tar.gz
     tar -xvzf /tmp/$program_name.tar.gz -C /usr/local/bin $program_name
     rm -v /tmp/$program_name.tar.gz
     chmod +x /usr/local/bin/$program_name
@@ -105,7 +108,8 @@ function update {
     fi
     # Download and extract the program to /usr/local/bin
     echo "Updating $program_name from v$current_version to $latest_version version ..."
-    curl -L# "$program_download_url/$latest_version/${program_name}_${os}.tar.gz" -o /tmp/$program_name.tar.gz
+    # curl -L# "$program_download_url/$latest_version/${program_name}_${os}.tar.gz" -o /tmp/$program_name.tar.gz
+    curl -L# "$program_download_url/$latest_version/${program_name}_${os}_${latest_version#v}.tar.gz" -o /tmp/$program_name.tar.gz
     remove
     tar -xvzf /tmp/$program_name.tar.gz -C /usr/local/bin $program_name
     rm -v /tmp/$program_name.tar.gz
